@@ -21,7 +21,7 @@ string kangaroo(int x1, int v1, int x2, int v2) {
     string yes = "YES";
     string no = "NO";
     if(x1 <= x2 && v1 < v2 || x1 < x2 && v1 == v2) return no;
-    if(x1 == x2 && v1 == v2 || abs(x1-x2) % (v1-v2) == 0) return yes;
+    if(abs(x1-x2) % (v1-v2) == 0) return yes;
     return no;
 }
 
