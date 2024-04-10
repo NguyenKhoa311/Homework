@@ -18,21 +18,11 @@ vector<string> split(const string &);
  */
 
 string kangaroo(int x1, int v1, int x2, int v2) {
-    string s1 = "YES";
-    string s2 = "NO";
-    if(x1 <= x2 && v1 < v2) return s2;
-    else if(x1 == x2 && v1 == v2) return s1;
-    else if(x1 < x2 && v1 == v2) return s2;
-    else
-    {
-        int d = abs(x1 - x2);
-        int v = v1 - v2;
-        if(d % v == 0)
-        {
-            return s1;
-        }
-        else return s2;
-    }
+    string yes = "YES";
+    string no = "NO";
+    if(x1 <= x2 && v1 < v2 || x1 < x2 && v1 == v2) return no;
+    if(x1 == x2 && v1 == v2 || abs(x1-x2) % (v1-v2) == 0) return yes;
+    return no;
 }
 
 int main()
