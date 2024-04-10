@@ -17,11 +17,7 @@ string hackerrankInString(string s) {
     int i = 0;
     for(char c : s)
     {
-        if (c == t[i])
-        {
-            i++;
-            if(i == t.size()) return "YES";
-        }
+        if (c == t[i] && ++i == t.size()) return "YES";
     }
     return "NO";
 }
