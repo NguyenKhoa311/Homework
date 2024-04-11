@@ -22,30 +22,26 @@ string caesarCipher(string s, int k) {
         {
             case 'a'... 'z':
             {
-                 int charStart = int(c) - int('a');
+                int charStart = c - 'a';
                 int charRes = (charStart + k) % 26;
-                int foo = (int)'a' + charRes;
-                char res = (char)foo;
-                ans += res;
+                ans += (char) ('a'+ charRes);
             }
-                break;
+            break;
             
             case 'A' ... 'Z':
             {
-                 int charStart1 = int(c) - int('A');
+                int charStart1 = c - 'A';
                 int charRes1 = (charStart1 + k) % 26;
-                int foo1 = (int)'A' + charRes1;
-                char res1 = (char)foo1;
-                ans += res1;
+                ans += (char) ('A' + charRes1);
             }
-                break;
+            break;
+            
             default:
                 ans += c;
-                break;
+            break;
         }
     }
     return ans;
-
 }
 
 int main()
