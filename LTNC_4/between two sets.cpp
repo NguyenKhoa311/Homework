@@ -34,8 +34,7 @@ int getTotalX(vector<int> a, vector<int> b) {
             }
         }
         cnt++;
-        next_i:
-        continue;
+        next_i:;
     }
     return cnt;
 
