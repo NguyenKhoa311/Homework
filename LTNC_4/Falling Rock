@@ -1,3 +1,5 @@
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
 #include <cmath>
 #include <cstdio>
 #include <vector>
@@ -5,43 +7,51 @@
 #include <algorithm>
 using namespace std;
 
-const int MAX=1050;
-bool isValidPosition(int x, int y, char a[MAX][MAX], int row, int col)
-{
-    return 0 <= x && row > x && 0 <= y && col > y;
-}
+    
 int main() {
 
   int w,h;
-  cin >> w >> h;
-  char a[MAX][MAX];
-  for(int i = 0; i < h; i++)
+  cin>>w>>h;
+  char a[h + 1][w + 1];
+  for(int i = 0; i <h; i++)
   {
       for(int j = 0; j < w; j++)
       {
           cin >> a[i][j];
-
       }
   }
-
+    
   for(int i = 0; i < h; i++)
   {
         for(int j = 0; j < w; j++)
         {
-            if(a[i][j]=='Y')
+            if(a[i][j] == 'Y')
             {
 
-                if(isValidPosition(i+1,j,a, h, w) && a[i+1][j] == 'E' ) {a[i+1][j] = 'Y';}
-                if(isValidPosition(i+1,j+1,a, h, w) && a[i+1][j+1] == 'E' && a[i][j+1] != 'R') {a[i+1][j+1] = 'Y';}
-                if(isValidPosition(i+1,j-1,a, h, w) && a[i+1][j-1] == 'E' && a[i][j-1] != 'R') {a[i+1][j-1] = 'Y'; }
+                if( a[i+1][j] == 'E' ) 
+                {
+                    a[i+1][j] = 'Y';
+                }
+                if( a[i+1][j+1] == 'E' && a[i][j+1] == 'E') 
+                {
+                    a[i+1][j+1] = 'Y';
+                }
+                if( a[i+1][j-1] == 'E' && a[i][j-1] == 'E') 
+                {
+                    a[i+1][j-1] = 'Y'; 
+                }
             }
         }
   }
-
- for(int i = 0; i < w; i++)
+ for(int i = 0; i < w; i++ )
  {
-     if(a[h-1][i] == 'Y') {cout << "YES"; return 0;}
+     if(a[h-1][i] == 'Y') 
+     {
+         cout<<"YES"; 
+         return 0;
+     }
  }
-    cout << "NO";
+    cout<<"NO";
     return 0;
+
 }
